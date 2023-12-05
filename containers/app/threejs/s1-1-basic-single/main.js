@@ -10,7 +10,7 @@ renderer.setSize(640, 480, false);
 // LOADING A DAE FILE
 //-------- ----------
 const loader = new THREE.ColladaLoader();
-loader.load("/dae/obj/obj.dae", function (result) {
+loader.load("dae/obj/obj.dae", function (result) {
     const mesh_source = result.scene.children[2];
     const mesh = new THREE.Mesh(mesh_source.geometry, new THREE.MeshNormalMaterial());
     scene.add(mesh);
