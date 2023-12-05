@@ -32,7 +32,6 @@ Working with the DAE loader, and loaders in general has proved to be a little bi
 In this example I will just be loading a single dae file using the THREE.ColladaLoader constructor to create an instance of such a loader. I then just need to call the load method of this Collada loader instance and pass the url to the dae file that I want to load as the first argument. For the second argument I am going to want to pass a callback function to call when the resource has finished loading. It is then within this call back function that I am going to want to add the whole scene, or a child object of the dae file into the three.js scene, or do whatever it is that needs to be done with what the file contains.
 
 ```
-	
 //-------- ----------
 // SCENE, CAMERA, RENDERER
 //-------- ----------
