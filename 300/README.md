@@ -25,7 +25,40 @@ When I wrote this post I was using r127 of three.js, and the last time I got aro
 
 I try to do a half way decent job of editing files, but I have a lot of pots boiling when it comes to all the other various posts on threejs as well as whole other topics completely.
 
-## 600 - 
+## 600 - Some basic examples of the DAE loader
+Working with the DAE loader, and loaders in general has proved to be a little bit of a pain. Not so much when it comes to getting started with just loading a single DAE file mind you but a bunch of little things that will pop up as one moves forward to working out some code to use the DAE loader and address a whole bunch of other little things that will pop up. However I will not be getting into any of that here, rather I will be starting out with just a few vary simple basic examples. When it comes to just simply getting started with the DAE loader this is simple enough as least.
+
+### 100 - Load a single dae file
+In this example I will just be loading a single dae file using the THREE.ColladaLoader constructor to create an instance of such a loader. I then just need to call the load method of this Collada loader instance and pass the url to the dae file that I want to load as the first argument. For the second argument I am going to want to pass a callback function to call when the resource has finished loading. It is then within this call back function that I am going to want to add the whole scene, or a child object of the dae file into the three.js scene, or do whatever it is that needs to be done with what the file contains.
+
+```
+	
+//-------- ----------
+// SCENE, CAMERA, RENDERER
+//-------- ----------
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, 4 / 3, 0.5, 1000);
+const renderer = new THREE.WebGL1Renderer();
+renderer.setSize(640, 480, false);
+(document.getElementById('demo') || document.body ).appendChild(renderer.domElement);
+//-------- ----------
+// LOADING A DAE FILE
+//-------- ----------
+const loader = new THREE.ColladaLoader();
+loader.load("/dae/obj/obj.dae", function (result) {
+    const mesh_source = result.scene.children[2];
+    const mesh = new THREE.Mesh(mesh_source.geometry, new THREE.MeshNormalMaterial());
+    scene.add(mesh);
+    camera.position.set(5, 5, 5);
+    camera.lookAt(0, 0, 0);
+    renderer.render(scene, camera);
+});
+```
+
+For this example I am just loading a single file, and I am sure nothing will go wrong when doing so. However when it comes to making something that is ready for production, or is staring to go in the direction of a full bug time project of some kind I am going to want to pass a few more functions to the loader method that have to do with tracking load progress, and handing errors.
+Still for this basic example I just wanted to load a single object in the dae file, to do so there is the scene object of the result. In this scene object there are all the children in the scene loaded from the dae file, with the file I used there where three children and I just happen to know which child it is that I wanted to load. Alternatively I could also just load the full scene rather than just the single child object that I wanted.
+
+After I have what I wanted from the file added to my main three.js scene, I just started my main app loop function in which I am rendering the scene, and updating the orbit controls that i am also making use of that I can then use to look at the module that I have loaded.
 
 
 MORE ...
