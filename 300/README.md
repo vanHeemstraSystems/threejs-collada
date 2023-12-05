@@ -117,6 +117,14 @@ See containers/app/threejs/s1-2-basic-resource/index.html
 
 ### 300 - Loading more than one file
 
+This is where things will start to get a little involved as in this section I will be focusing on code examples that have to do with loading more than one DAE file. There is a lot to take in when it comes to this sort of thing, and I still do not have a solution that I am truly happy with as well for that matter. What makes this a little involved is that there is not just having an array of urls for each DAE file but I will also want to have urls for the base resource urls for the images that I will use for each file. On top of that there is also the question of how which objects from the dae exports do I want, and also how to go about making clones of them. There are a whole lot of other little tasks such as how to go about making a progress bar if I feel as though I may need one, and so forth.
 
+### 400 - Basic helper function that returns a promise
+
+Although loading a whole bunch of DAE files will prove to be a little hard, it is still only so hard. Also as always it helps to start out with a very simple hello world type example of something, and with this example at least I will be starting out with just that. For this example I have a single helper function that will return a promise that will resolve when the on load event happens for the main loading manager, and the promise will reject if there is a single error with the main manager.
+
+```
+
+```
 
 MORE ...
