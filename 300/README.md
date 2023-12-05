@@ -59,5 +59,64 @@ Still for this basic example I just wanted to load a single object in the dae fi
 
 After I have what I wanted from the file added to my main three.js scene, I just started my main app loop function in which I am rendering the scene, and updating the orbit controls that i am also making use of that I can then use to look at the module that I have loaded.
 
+See containers/app/threejs/s1-1-basic-single/index.html
+
+### 200 - Setting the resource URL and using a Custom Loading Manager
+Loading just a single dae file where I just care about the geometry and nothing else is one thing, but then there are dae files where I also care about the uvs, and also some additional textures files to use to skin the dae file geometry. To make matters worse in some cases the dae file that I want to load is in one location and the texture files that I want to skin it with are located in another. For example I might have one dae file, but then a few folders with different skins for the same dae file. With that said there should be a way to change what the resource URL is for a loader, for this there is the [setResourcePath method of the loader class](https://threejs.org/docs/#api/en/loaders/Loader.setResourcePath) that can be used to do just that.
+
+```
+//-------- ----------
+// SCENE, CAMERA, RENDERER
+//-------- ----------
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, 4 / 3, 0.5, 1000);
+const renderer = new THREE.WebGL1Renderer();
+renderer.setSize(640, 480, false);
+(document.getElementById('demo') || document.body ).appendChild(renderer.domElement);
+//-------- ----------
+// LIGHT
+//-------- ----------
+const pl = new THREE.PointLight(0xffffff);
+pl.position.set(2, 5, 3);
+scene.add(pl);
+//-------- ----------
+// LOAD MANAGER
+//-------- ----------
+const manager = new THREE.LoadingManager();
+manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+    console.log('manager.onStart');
+};
+manager.onLoad = function ( ) {
+    console.log('manager.onLoad: Dae and textures now loaded.');
+    camera.position.set(5,5,5);
+    camera.lookAt(0,0,0);
+    renderer.render(scene, camera);
+};
+manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+    console.log('manager.onProgress: ' + itemsLoaded + '/' + itemsTotal);
+};
+manager.onError = function ( url ) {};
+//-------- ----------
+// DAE LOADER
+//-------- ----------
+// CREATE A COLLADALOADER INSTANCE
+const loader = new THREE.ColladaLoader(manager);
+// SETTING THE BASE RESOURCE URL FOR TEXTTURES
+loader.setResourcePath('dae/guy2/guy2-skin-mrg1/');
+// THEN LOADING AS USHUAL
+loader.load('dae/guy2/guy2.dae', function (result) {
+    console.log('cb of loader.load');
+    // adding the child that I want to the scene
+    scene.add(result.scene.children[2]);
+});
+```
+
+One additional thing that I thought I should start to look into at least with this example is to use a custom loader manager along with the single instance of the dae loader. One major reason why is that the callback for the load method of the dae loader will fore when the dae file is loaded, but not when all the textures are loaded. So then I have found that I want to start the loop when all the textures are loaded also, not just the dae file alone.
+
+See containers/app/threejs/s1-2-basic-resource/index.html
+
+### 300 - Loading more than one file
+
+
 
 MORE ...
