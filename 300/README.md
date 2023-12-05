@@ -17,3 +17,15 @@ I am running this example by way of http rather than the file protocol, this sho
 ## 300 - There is also my dae tools threejs examples project
 This post has to do with a few examples involving working with the dae file loader alone, rather than some kind of additional module built on top of it. As I work with the dae loader there are going to be various tasks that will come up, and things that I will want to do a certain way that results in a need for some kind of additional utility library to park some of these methods that I will want to use over and over again. So then I have a [DAE tools threejs project example](https://dustinpfister.github.io/2021/06/25/threejs-examples-dae-tools/) that is my current standing take on this kind of project that I come around to revising now and then.
 
+## 400 - The source code examples in this post are on Github
+The source code examples that I am write about in this post can be [found up on github](https://github.com/dustinpfister/test_threejs/tree/master/views/forpost/threejs-dae-collada-loader) in my text threejs repository. This is also where I am placing all the various source code examples that I have made for all my [other blog posts on threejs](https://dustinpfister.github.io/categories/three-js/) over the years as well.
+
+## 500 - Version Numbers matter with three.js
+When I wrote this post I was using r127 of three.js, and the last time I got around to doing a little editing I was [using r146](https://github.com/dustinpfister/test_threejs/blob/master/views/demos/r146/README.md). In the future this code might break on later versions as code breaking changes are made to the library often. So if the code breaks the first thing you should check is what version of three.js you are using, it really matters a lot, more so than other libraries where the code is just more or less being maintained at a fixed state in terms of the state of the public API.
+
+I try to do a half way decent job of editing files, but I have a lot of pots boiling when it comes to all the other various posts on threejs as well as whole other topics completely.
+
+## 600 - 
+
+
+MORE ...
