@@ -9,7 +9,7 @@ Based on "test_threejs" at https://github.com/dustinpfister/test_threejs/tree/ma
 
 See also "Collada Files Explained" at https://www.adobe.com/creativecloud/file-types/image/vector/collada-file.html#
 
-See also "Collada Tutorial" at http://wazim.com/collada-tutorial1/
+See also "Collada Tutorial" at http://wazim.com/collada-tutorial1/ and http://wazim.com/collada-tutorial2/
 
 ## 100 - Introduction
 
