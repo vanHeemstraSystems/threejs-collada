@@ -279,4 +279,13 @@ DAE_loader({
 
 See containers/app/threejs/s2-2-many-cloner/index.html
 
+### 600 - Having a module form of this DAE Helper ( r0 )
+
+I have made a threejs project example called DAE tools that I have use a little now and then, and have also made a few revisions of thus far. However at the time of this writing at least I have found that I am making that project a little to complex, and also when it comes to the most important aspects of what it should be it is not working so great. So then I am making a new module type project where I am starting over and just thinking more in terms of what is most important when it comes to loading DAE files.
+
+There is not just loading a DAE file, there is also loading a few DAE files. There is also not just loading a few DAE files but also loading zero or more textures for each of these files. There is also not just loading the DAE files and all additional assets, but there is also the question of what to load from the DAE files. For example when I work out a blender file, and export that file as DAE I might have a camera, lamp, and additional mesh objects that I might not want to be added to a main scene object that I will then add resources from. Speaking of a main source object there is also that as well. That is to not just have a collection of result objects but a single scene object that is created from one or more DAE files that I will ether directly use as a project, or use as a means to get references to source objects that will in turn be used with another scene object.
+
+Okay that was all a mount full, however maybe all of that can still all be done with one little helper function that I can package up as just a very simple little javaScript project that I can then link to and use from one project to the next, and that will be what this section is all about.
+
+
 MORE ...
