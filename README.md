@@ -11,6 +11,8 @@ See also "Collada Files Explained" at https://www.adobe.com/creativecloud/file-t
 
 See also "Collada Tutorial" at http://wazim.com/collada-tutorial1/ and http://wazim.com/collada-tutorial2/
 
+See also "Blender - Collada" at https://docs.blender.org/manual/en/latest/files/import_export/collada.html
+
 ## 100 - Introduction
 
 See [README.md](./100/README.md)
