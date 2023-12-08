@@ -1,1 +1,3 @@
 # 100 - Introduction
+
+COLLADA documents are cross platform because they are stored in UTF-8 format using XML schema. I think you already know something about COLLADA that is why you are here! So let’s not waste any time and jump straight to the implementation. If you want to read more about COLLADA documents then go visit ([www.COLLADA.org](www.COLLADA.org)) and keep reading the COLLADA wiki and COLLADA forums.
